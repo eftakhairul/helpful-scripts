@@ -5,7 +5,7 @@
 # Written by @eftakhairul from https://eftakahirul.com
 #
 #
-# RUN: bash <(curl -s https://gist.githubusercontent.com/eftakhairul/74670f8ba96bcf6efcecb28f238aa3b7/raw/f43cc5deaac1bcc20657e6bd3a1455441c1795d6/LEMP-server)
+# RUN: bash <(curl -s https://raw.githubusercontent.com/eftakhairul/helpful-scripts/master/lemp-server.sh)
 ###################################################################################
 
 #COLORS
