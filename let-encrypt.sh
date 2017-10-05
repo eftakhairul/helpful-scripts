@@ -1,11 +1,11 @@
 #!/bin/sh
 
 ##################################################################################
-# Bash script to install an LEMP stack plus tweaks. For Ubuntu based systems.
+# Bash script to install certbot for Ubuntu based systems.
 # Written by @eftakhairul from https://eftakahirul.com
 #
 #
-# RUN: bash <(curl -s https://raw.githubusercontent.com/eftakhairul/helpful-scripts/master/lemp-server.sh)
+# RUN: bash <(curl -s https://raw.githubusercontent.com/eftakhairul/helpful-scripts/master/let-encrypt.sh)
 ###################################################################################
 
 #COLORS
