@@ -1,0 +1,20 @@
+---
+# This playbook prepare LEMP stack
+
+- name: Provision LEMP Server with Ansible
+  gather_facts: no
+  sudo: yes
+  sudo_user: root
+  remote_user: ubuntu
+  hosts: webservers
+
+  vars: d
+    - mysqlservice: mysql
+    - mysql_port: 3306
+    - dbuser: 
+    - upassword: 
+    - dbname:
+    - httpd_port: 80
+
+  roles:
+    - server

@@ -1,0 +1,73 @@
+---
+
+- name: Installing packages: python-software-properties
+  apt: 
+    name: python-software-properties
+    update_cache: yes
+
+- name: Installing packages: software-properties-common
+  apt: 
+    name: software-properties-common
+
+- name: Installing Nginx
+  apt:
+    name: nginx
+    state: latest
+    update_cache: yes
+
+- name: Copy sites-available template
+  template: 
+    src: site-conf.j2
+    dest: /etc/nginx/sites-available/product.conf
+    backup: yes
+
+- name: Add PHP 7.1 repo
+  become: true
+        apt_repository:
+          repo: 'ppa:ondrej/php'
+
+- name: Install PHP 7.1 cli
+  apt:
+      name: php7.1-cli
+
+- name: Install PHP 7.1 fpm
+  apt:
+      name: php7.1-fpm
+
+- name: Install PHP 7.1 mysql
+  apt:
+    name: php7.1-mysql  
+
+
+- name: Install PHP 7.1 mcrypt
+  apt:
+    name: php7.1-mcrypt   
+
+- name: Install PHP 7.1 mbstrin
+  apt:
+    name: php7.1-mbstrin    
+
+
+- name: Install PHP 7.1 xml
+  apt:
+    name: php7.1-xml        
+
+- name: Install PHP 7.1 zip
+  apt:
+    name: php7.1-zip   
+
+- name: Install PHP 7.1 bz2
+  apt:
+    name: php7.1-bz2    
+
+- name: Deactivate the default nginx site
+  file: path=/etc/nginx/sites-enabled/default
+        state=absent
+
+- name: Activate the product.conf site
+  file: src=/etc/nginx/sites-available/product.conf
+        dest=/etc/nginx/sites-enabled/product.conf
+        state=link
+
+- name: Start nginx
+  command: start nginx
