@@ -38,15 +38,13 @@
   apt:
     name: php7.1-mysql  
 
-
 - name: Install PHP 7.1 mcrypt
   apt:
     name: php7.1-mcrypt   
 
 - name: Install PHP 7.1 mbstrin
   apt:
-    name: php7.1-mbstrin    
-
+    name: php7.1-mbstrin   
 
 - name: Install PHP 7.1 xml
   apt:
@@ -58,7 +56,20 @@
 
 - name: Install PHP 7.1 bz2
   apt:
-    name: php7.1-bz2    
+    name: php7.1-bz2  
+
+- name: Install MySQL server
+  apt:
+    name: mysql-server
+
+- name: Start Mysql Service
+  service: name=mysql state=started enabled=true
+
+- name: Create Application Database
+  mysql_db: name={{ dbname }} state=present
+
+- name: Create Application DB User
+  mysql_user: name={{ dbuser }} password={{ upassword }} priv=*.*:ALL host='%' state=present
 
 - name: Deactivate the default nginx site
   file: path=/etc/nginx/sites-enabled/default
