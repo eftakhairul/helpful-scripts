@@ -8,7 +8,7 @@
   remote_user: ubuntu
   hosts: webservers
 
-  vars: d
+  vars: 
     - mysqlservice: mysql
     - mysql_port: 3306
     - dbuser: 
